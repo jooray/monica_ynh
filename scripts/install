@@ -8,6 +8,8 @@
 
 source _common.sh
 source /usr/share/yunohost/helpers
+source _ynh_fpm_config
+source _getopts
 
 #=================================================
 # MANAGE SCRIPT FAILURE
@@ -110,7 +112,7 @@ ynh_system_user_create $app
 #=================================================
 
 # Create a dedicated php-fpm7.1 config
-ynh_add_fpm7.1_config
+ynh_install_php --phpversion=7.1
 
 #=================================================
 # SPECIFIC SETUP
@@ -184,12 +186,4 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
-service php7.1-fpm start
-systemctl reload php7.1-fpm
 systemctl reload nginx
-# Set default php to php5 or php7.0
-if [ "$(lsb_release --codename --short)" == "jessie" ]; then
-	update-alternatives --set php /usr/bin/php5
-else
-    update-alternatives --set php /usr/bin/php7.0
-fi

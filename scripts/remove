@@ -8,6 +8,9 @@
 
 source _common.sh
 source /usr/share/yunohost/helpers
+source _ynh_fpm_config
+source _getopts
+
 
 #=================================================
 # LOAD SETTINGS
@@ -55,7 +58,7 @@ ynh_remove_nginx_config
 #=================================================
 
 # Remove the dedicated php-fpm7.1 config
-ynh_remove_fpm7.1_config
+ynh_remove_php
 
 
 #=================================================
