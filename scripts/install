@@ -87,6 +87,8 @@ ynh_app_setting_set $app final_path $final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source "$final_path"
 
+
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -107,6 +109,8 @@ ynh_system_user_create $app
 
 # Create a dedicated php-fpm7.1 config
 ynh_install_php --phpversion=7.1
+
+init_composer $final_path
 
 #=================================================
 # SPECIFIC SETUP
