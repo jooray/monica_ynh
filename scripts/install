@@ -70,10 +70,6 @@ ynh_app_setting_set $app random_key $random_key
 #=================================================
 # STANDARD MODIFICATIONS
 #=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-
-ynh_install_php7
 
 #=================================================
 # CREATE A MYSQL DATABASE
